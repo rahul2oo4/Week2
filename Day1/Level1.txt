@@ -1,0 +1,373 @@
+Program to Display Employee Details
+Problem Statement: Write a program to create an Employee class with attributes name, id, and salary. Add a method to display the details.
+ import java.util.Scanner;
+class Employee{
+   String name="Rahul";
+   int id=28;
+   int salary= 60000;
+   void display()
+   {
+       System.out.println(id);
+       System.out.println(salary);
+       System.out.println(name);
+   }
+}
+public class Main{
+   public static void main(String[] args){
+       Employee employee = new Employee();
+       employee.display();
+   }
+}
+
+
+Program to Compute Area of a Circle
+Problem Statement: Write a program to create a Circle class with an attribute radius. Add methods to calculate and display the area and circumference of the circle.
+
+
+import java.util.Scanner;
+class Circle{
+   double radius;
+   Circle(double radius){
+       this.radius = radius;
+   }
+   void area()
+   {
+       System.out.println(3.14*radius*radius);
+   }
+   void circumference()
+   {
+       System.out.println(2*3.14*radius);
+   }
+}
+public class Main{
+   public static void main(String[] args){
+       Circle obj = new Circle(5);
+
+       obj.area();
+       obj.circumference();
+   }
+}
+
+
+Program to Handle Book Details
+Problem Statement: Write a program to create a Book class with attributes title, author, and price. Add a method to display the book details.
+
+
+class Book{
+   String title;
+   String author;
+   int price;
+
+   Book(String title, String author, int price)
+   {
+       this.title = title;
+       this.author = author;
+       this.price = price;
+   }
+   void display()
+   {
+       System.out.println(title);
+       System.out.println(author);
+       System.out.println(price);
+       System.out.println();
+   }
+}
+public class Main{
+public static void main(String[] args){
+   Book book1 = new Book("Garden of fireflies", "Miyazaki", 2000);
+   Book book2 = new Book("Your name","Makoto Shinkai", 1500);
+   book1.display();
+   book2.display();
+}}
+
+
+Program to Track Inventory of Items
+Problem Statement: Create an Item class with attributes itemCode, itemName, and price. Add a method to display item details and calculate the total cost for a given quantity.
+import java.util.Scanner;
+class Item{
+   int itemcode;
+   String itemname;
+   int price;
+
+   Item(int itemcode, String itemname, int price)
+   {
+       this.itemcode = itemcode;
+       this.itemname = itemname;
+       this.price = price;
+   }
+   void display()
+   {
+       System.out.println("enter the quantity of "+this.itemname+":");
+       Scanner scanner = new Scanner(System.in);
+       int quantity = scanner.nextInt();
+       System.out.println(quantity*this.price);
+   }
+}
+public class Main {
+   public static void main(String[] args)
+   {
+       Item item1 = new Item(12,"Banana",6);
+       item1.display();
+   }
+}
+
+
+Program to Handle Mobile Phone Details
+Problem Statement: Create a MobilePhone class with attributes brand, model, and price. Add a method to display all the details of the phone. The MobilePhone class uses attributes to store the phone's characteristics. The method is used to retrieve and display this information for each object.
+class MobilePhone {
+    String brand;
+    String model;
+    double price;
+    MobilePhone(String brand, String model, double price) {
+        this.brand = brand;
+        this.model = model;
+        this.price = price;
+    }
+    void displayDetails() {
+        System.out.println("Brand: " + brand);
+        System.out.println("Model: " + model);
+        System.out.println("Price: ]" + price);
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        MobilePhone phone1 = new MobilePhone("Samsung", "Galaxy S23", 79999);
+        MobilePhone phone2 = new MobilePhone("Apple", "iPhone 15", 89999);
+
+        phone1.displayDetails();
+        phone2.displayDetails();
+    }
+}
+
+
+
+
+
+Level 2 Practice Programs
+Program to Simulate Student Report
+Problem Statement: Create a Student class with attributes name, rollNumber, and marks. Add two methods:
+To calculate the grade based on the marks.
+To display the student's details and grade.
+Explanation: The Student class organizes all relevant details about a student as attributes. Methods are used to calculate the grade and provide a way to display all information.
+
+import java.util.Scanner;
+class Student{
+   String name;
+   int roll;
+   int marks;
+
+   Student(String name, int roll, int marks)
+   {
+       this.name = name;
+       this.roll = roll;
+       this.marks = marks;
+   }
+   void grade()
+   {
+       if(marks>90)
+       {
+           System.out.println("Outstanding grade");
+           System.out.println();
+       }
+       else if(marks>80 && marks<90)
+       {
+           System.out.println("Average grade");
+           System.out.println();
+       }
+       else
+       {
+           System.out.println("Failing grade");
+           System.out.println();
+       }
+   }
+   void display()
+   {
+       System.out.println(name);
+       System.out.println(roll);
+       grade();
+   }
+}
+public class Main
+{
+   public static void main(String[] args)
+   {
+       Student student1 = new Student("Rahul",28,91);
+       Student student2 = new Student("Kavin",27,89);
+       Student student3 = new Student("Einstein",21,40);
+       student1.display();
+       student2.display();
+       student3.display();
+   }
+}
+
+
+Program to Simulate an ATM
+Problem Statement: Create a BankAccount class with attributes accountHolder, accountNumber, and balance. Add methods for:
+Depositing money.
+Withdrawing money (only if sufficient balance exists).
+Displaying the current balance.
+Explanation: The BankAccount class stores bank account details as attributes. The methods allow interaction with these attributes to modify and view the account's state.
+import java.util.Scanner;
+
+class BankAccount {
+    String accountholder;
+    int accountNumber;
+    int balance;
+    Scanner scanner = new Scanner(System.in);
+
+    BankAccount(String accountholder, int accountNumber, int balance) {
+        this.accountholder = accountholder;
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+    }
+
+    void deposit() {
+        System.out.print("Enter the amount you want to deposit: ");
+        int dep = scanner.nextInt();
+        if (dep > 0) {
+            balance += dep;
+            System.out.println("Successfully deposited: " + dep);
+        } else {
+            System.out.println("Invalid deposit amount.");
+        }
+    }
+
+    void withdraw() {
+        System.out.print("Enter the amount you want to withdraw: ");
+        int with = scanner.nextInt();
+        
+        if (with > balance) {
+            System.out.println("Balance insufficient.");
+        } else if (with > 0) {
+            balance -= with;
+            System.out.println("Successfully withdrawn: " + with);
+        } else {
+            System.out.println("Invalid withdrawal amount.");
+        }
+    }
+
+    void display() {
+        System.out.println("\nAccount Holder: " + accountholder);
+        System.out.println("Account Number: " + accountNumber);
+        System.out.println("Balance: " + balance);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        BankAccount a1 = new BankAccount("Rahul", 123, 30000);
+        BankAccount a2 = new BankAccount("Kirito", 333, 12000);
+        
+        a1.display();
+        a1.deposit();
+        a1.withdraw();
+        a1.display();
+
+        a2.display();
+        a2.deposit();
+        a2.withdraw();
+        a2.display();
+    }
+}
+
+
+
+Program to Check Palindrome String
+Problem Statement: 	Create a PalindromeChecker class with an attribute text. Add methods to:
+Check if the text is a palindrome.
+Display the result.
+Explanation: The PalindromeChecker class holds the text attribute. The methods operate on this attribute to verify its palindrome status and display the result.
+class PalindromeChecker
+{
+   String text;
+
+   PalindromeChecker(String text)
+   {
+       this.text = text;
+   }
+
+   void check()
+   {
+       int i=0;
+       int j=text.length()-1;
+       boolean ispali = true;
+       while(i<j)
+       {
+           if(text.charAt(i)==text.charAt(j))
+           {
+               i++;
+               j--;
+           }
+           else
+           {
+               ispali = false;
+               break;
+           }
+       }
+       if(ispali)
+       {
+           System.out.println("PALINDROME");
+       }
+       else
+       {
+           System.out.println("NOT A PALINDROME");
+       }
+   }
+}
+public class Main {
+   public static void main(String[] args)
+   {
+       PalindromeChecker a1 = new PalindromeChecker("Rahul the great");
+       PalindromeChecker a2 = new PalindromeChecker("nurses run");
+       PalindromeChecker a3 = new PalindromeChecker("madam");
+
+       a1.check();
+       a2.check();
+       a3.check();
+   }
+}
+
+
+Program to Model a Movie Ticket Booking System
+Problem Statement: Create a MovieTicket class with attributes movieName, seatNumber, and price. Add methods to:
+Book a ticket (assign seat and update price).
+Display ticket details.
+Explanation: The MovieTicket class organizes ticket information with attributes. The methods handle booking logic and display ticket details.
+
+class MovieTicket
+{
+   String moviename;
+   int seatnumber;
+   int price;
+
+   MovieTicket(String moviename, int seatnumber, int price)
+   {
+       this.moviename = moviename;
+       this.seatnumber = seatnumber;
+       this.price = price;
+   }
+
+   int book(int n)
+   {
+       price = n*price;
+       return price;
+   }
+
+   void display()
+   {
+       System.out.println(moviename);
+       System.out.println(seatnumber);
+       System.out.println(price);
+   }
+}
+
+public class Main{
+   public static void main(String[] args)
+   {
+       MovieTicket t1 = new MovieTicket("Your Name", 32, 200);
+       t1.book(9);
+       t1.display();
+   }
+}
+
+
