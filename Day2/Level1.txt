@@ -1,0 +1,530 @@
+Create a Book class with attributes title, author, and price. Provide both default and parameterized constructors.
+class Book
+{
+   String title;
+   String author;
+   int price;
+
+   Book()
+   {
+       title = "Your Name";
+       author = "Makoto Shinkai";
+       price = 100;
+   }
+
+   Book(String title, String author, int price)
+   {
+       this.title = title;
+       this.author =author;
+       this.price = price;
+   }
+
+   void display()
+   {
+       System.out.println(title);
+       System.out.println(author);
+       System.out.println(price);
+       System.out.println();
+     
+   }
+}
+public class Main{
+   public static void main(String[] args)
+   {
+       Book book1 = new Book();
+       Book book2 = new Book("One Piece","Oda",3000);
+       book1.display();
+       book2.display();
+   }
+}
+
+
+Write a Circle class with a radius attribute. Use constructor chaining to initialize radius with default and user-provided values.
+class Circle
+{
+   int radius;
+
+   Circle()
+   {
+       this(2);
+   }
+
+   Circle(int radius)
+   {
+       this.radius = radius;
+   }
+
+   void display()
+   {
+       System.out.println(radius);
+   }
+}
+public class Main{
+   public static void main(String[] args)
+   {
+       Circle c1 = new Circle();
+       Circle c2 = new Circle(5);
+
+       c1.display();
+       System.out.println();
+       c2.display();
+   }
+}
+
+
+
+
+Create a Person class with a copy constructor that clones another person's attributes.
+class Person
+{
+   int age;
+   int height;
+
+   Person(int age, int height)
+   {
+       this.age = age;
+       this.height = height;
+   }
+
+   void display()
+   {
+       System.out.println(age);
+       System.out.println(height);
+   }
+}
+public class Main{
+   public static void main(String[] args)
+   {
+       Person p1 = new Person(12,120);
+       Person p2 = new Person(p1);
+       p1.display();
+       p2.display();
+   }
+}
+
+
+Hotel Booking System: Create a HotelBooking class with attributes guestName, roomType, and nights. Use default, parameterized, and copy constructors to initialize bookings.
+class hotelbooking
+{
+   String guestname;
+   String roomtype;
+   int nights;
+
+   hotelbooking()
+   {
+       guestname = "Sung Jin Woo";
+       roomtype = "Suite";
+       nights = 1;
+   }
+
+   hotelbooking(String guestname,String roomtype,int nights)
+   {
+       this.guestname = guestname;
+       this.roomtype = roomtype;
+       this.nights = nights;
+   }
+
+   hotelbooking(hotelbooking copy)
+   {
+       this.guestname = copy.guestname;
+       this.roomtype = copy.roomtype;
+       this.nights = copy.nights;
+   }
+
+   void display()
+   {
+       System.out.println(guestname);
+       System.out.println(roomtype);
+       System.out.println(nights);
+   }
+}
+public class Main{
+   public static void main(String[] args)
+   {
+       hotelbooking h1 = new hotelbooking();
+       hotelbooking h2 = new hotelbooking("Hunter Cha","Suite",1);
+       hotelbooking h3 = new hotelbooking(h2);
+
+       h1.display();
+       System.out.println();
+       h2.display();
+       System.out.println();
+       h3.display();
+   }
+}
+
+
+Library Book System: Create a Book class with attributes title, author, price, and availability. Implement a method to borrow a book.
+class book
+{
+   String name;
+   boolean availability;
+
+   book(String name, boolean availability)
+   {
+       this.name = name;
+       this.availability = availability;
+   }
+
+   void borrow()
+   {
+       if(availability)
+       {
+           System.out.println("Book has been borrowed");
+           availability = false;
+       }
+       else
+       {
+           System.out.println("No availability");
+       }
+   }
+   void returnn()
+   {
+       availability = true;
+       System.out.println("Book has been returned");
+   }
+}
+
+public class Main
+{
+   public static void main(String[] args)
+   {
+       book b1 = new book("Rahul",true);
+
+       b1.borrow();
+       b1.borrow();
+       b1.returnn();
+
+   }
+}
+
+
+Car Rental System: Create a CarRental class with attributes customerName, carModel, and rentalDays. Add constructors to initialize the rental details and calculate total cost.
+class CarRental
+{
+   String customerName;
+   String carModel;
+   int cost;
+   int rentaldays;
+
+   CarRental(String customerName, String carModel,int cost, int rentaldays)
+   {
+       this.customerName = customerName;
+       this.carModel = carModel;
+       this. rentaldays = rentaldays;
+       this.cost = cost;
+   }
+
+   int totalcost()
+   {
+       int result = cost * rentaldays;
+       return result;
+   }
+}
+public class Main{
+   public static void main(String[] args)
+   {
+       CarRental car1 = new CarRental("Rahul","Dodge Hellcat", 45000, 3);
+       CarRental car2 = new CarRental("Dhanush","Mustang",36000,3);
+       int a = car1.totalcost();
+       int b = car2.totalcost();
+       System.out.println("Price: "+a);
+       System.out.println("Price: "+b);
+   }
+}
+
+
+
+1. Instance vs. Class Variables and Methods
+Problem 1: Product Inventory
+Create a Product class with:
+Instance Variables: productName, price.
+Class Variable: totalProducts (shared among all products).
+Methods:
+An instance method displayProductDetails() to display the details of a product.
+A class method displayTotalProducts() to show the total number of products created.
+class Product
+{
+   static int totalProducts = 0;
+   String productName;
+   int price;
+   Product(String productName,int price)
+   {
+       this.productName = productName;
+       this.price = price;
+       Product.totalProducts++;
+   }
+   void displayProductdetail()
+   {
+       System.out.println(productName);
+       System.out.println(price);
+   }
+   void displayTotalproductions()
+   {
+       System.out.println(totalProducts);
+   }
+}
+public class Main
+{
+   public static void main(String[] args)
+   {
+       Product p1 = new Product("Mouse",5000);
+       Product p2 = new Product("Monitor",6000);
+       p1.displayProductdetail();
+       System.out.println();
+       p2.displayProductdetail();
+       System.out.println();
+       System.out.println("Total Products : " +Product.totalProducts);
+   }
+}
+
+
+
+
+
+
+Problem 2: Online Course Management
+Design a Course class with:
+Instance Variables: courseName, duration, fee.
+Class Variable: instituteName (common for all courses).
+Methods:
+An instance method displayCourseDetails() to display the course details.
+A class method updateInstituteName() to modify the institute name for all courses.
+class Course
+{
+   static String instituteName = "Stanford University";
+   String coursename;
+   int duration;
+   int fee;
+
+   Course(String coursename, int duration, int fee)
+   {
+       this.coursename = coursename;
+       this.duration = duration;
+       this.fee =fee;
+   }
+   void displaycoursedetails()
+   {
+       System.out.println(coursename);
+       System.out.println(duration);
+       System.out.println(fee);
+   }
+   static void updatename(String newname)
+   {
+       Course.instituteName = newname;
+   }
+}
+public class Main
+{
+   public static void main(String[] args)
+   {
+       Course c1 = new Course("Maths",400,4000);
+       Course c2 = new Course("Japanese", 200, 5000);
+
+       c1.displaycoursedetails();
+       System.out.println();
+       c2.displaycoursedetails();
+       System.out.println();
+
+       Course.updatename("TimaTimalu University");
+       System.out.println(Course.instituteName);
+   }
+}
+
+
+
+Problem 3: Vehicle Registration
+Create a Vehicle class to manage the details of vehicles:
+Instance Variables: ownerName, vehicleType.
+Class Variable: registrationFee (fixed for all vehicles).
+Methods:
+An instance method displayVehicleDetails() to display owner and vehicle details.
+A class method updateRegistrationFee() to change the registration fee.
+public class Vehicle {
+    String ownerName;
+    String vehicleType;
+    static int registrationFee = 500;
+
+    Vehicle(String ownerName, String vehicleType) {
+        this.ownerName = ownerName;
+        this.vehicleType = vehicleType;
+    }
+
+    void displayVehicleDetails() {
+        System.out.println("Owner: " + ownerName);
+        System.out.println("Type: " + vehicleType);
+        System.out.println("Fee: " + registrationFee);
+    }
+
+    static void updateRegistrationFee(int newFee) {
+        registrationFee = newFee;
+    }
+
+    public static void main(String[] args) {
+        Vehicle v1 = new Vehicle("Ravi", "Car");
+        v1.displayVehicleDetails();
+
+        Vehicle.updateRegistrationFee(700);
+        Vehicle v2 = new Vehicle("Anita", "Bike");
+        v2.displayVehicleDetails();
+    }
+}
+
+
+
+
+2. Access Modifiers
+Problem 1: University Management System
+Create a Student class with:
+rollNumber (public).
+name (protected).
+CGPA (private).
+Write methods to:
+Access and modify CGPA using public methods.
+Create a subclass PostgraduateStudent to demonstrate the use of protected members.
+class Student {
+    public int rollNumber;
+    protected String name;
+    private double CGPA;
+
+    public Student(int rollNumber, String name, double CGPA) {
+        this.rollNumber = rollNumber;
+        this.name = name;
+        this.CGPA = CGPA;
+    }
+
+    public double getCGPA() {
+        return CGPA;
+    }
+
+    public void setCGPA(double CGPA) {
+        this.CGPA = CGPA;
+    }
+}
+
+class PostgraduateStudent extends Student {
+
+    public PostgraduateStudent(int rollNumber, String name, double CGPA) {
+        super(rollNumber, name, CGPA);
+    }
+
+    public void showName() {
+        System.out.println("Postgrad Name: " + name);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        PostgraduateStudent pg = new PostgraduateStudent(101, "KENJI NANAMI", 8.5);
+        pg.showName();
+        System.out.println("Roll No: " + pg.rollNumber);
+        System.out.println("CGPA: " + pg.getCGPA());
+        pg.setCGPA(9.0);
+        System.out.println("Updated CGPA: " + pg.getCGPA());
+    }
+}
+
+
+
+
+
+Problem 2: Book Library System
+Design a Book class with:
+ISBN (public).
+title (protected).
+author (private).
+Write methods to:
+Set and get the author name.
+Create a subclass EBook to access ISBN and title and demonstrate access modifiers.
+class Book {
+    public String ISBN;
+    protected String title;
+    private String author;
+
+    public Book(String ISBN, String title, String author) {
+        this.ISBN = ISBN;
+        this.title = title;
+        this.author = author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+}
+
+class EBook extends Book {
+
+    public EBook(String ISBN, String title, String author) {
+        super(ISBN, title, author);
+    }
+
+    public void showDetails() {
+        System.out.println("ISBN: " + ISBN);
+        System.out.println("Title: " + title);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        EBook e = new EBook("123-456", "Java", "Kenji Nanami");
+        e.showDetails();
+        System.out.println("Author: " + e.getAuthor());
+        e.setAuthor("Ryuji Kagemaru");
+        System.out.println("Updated Author: " + e.getAuthor());
+    }
+}
+
+
+
+
+
+Problem 3: Bank Account Management
+Create a BankAccount class with:
+accountNumber (public).
+accountHolder (protected).
+balance (private).
+Write methods to:
+Access and modify balance using public methods.
+Create a subclass SavingsAccount to demonstrate access to accountNumber and accountHolder.
+class BankAccount {
+    public int accountNumber;
+    protected String accountHolder;
+    private double balance;
+
+    public BankAccount(int accountNumber, String accountHolder, double balance) {
+        this.accountNumber = accountNumber;
+        this.accountHolder = accountHolder;
+        this.balance = balance;
+    }
+    public double getBalance() {
+        return balance;
+    }
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+}
+class SavingsAccount extends BankAccount {
+    public SavingsAccount(int accountNumber, String accountHolder, double balance) {
+        super(accountNumber, accountHolder, balance);
+    }
+    public void showInfo() {
+        System.out.println("Account No: " + accountNumber);
+        System.out.println("Holder Name: " + accountHolder);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        SavingsAccount s = new SavingsAccount(1001, "Kenji Nanami", 15000.0);
+        s.showInfo();
+        System.out.println("Balance: " + s.getBalance());
+        s.setBalance(18000.0);
+        System.out.println("Updated Balance: " + s.getBalance());
+    }
+}
+
+
